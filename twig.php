@@ -146,6 +146,10 @@ class KirbyTwigComponent extends Kirby\Component\Template {
 
 		// Add the snippet helper and mark it as safe for HTML output
 		$twig->addFunction(new Twig_SimpleFunction('snippet', 'snippet', ['is_safe' => ['html']]));
+		
+		// Add the translation getter from kirby
+		$twig->addFunction(new Twig_SimpleFunction('trans', 'l::get'));
+
 
 		// Plug in our selected list of helper functions
 		foreach ($this->toTwigFunctions as $name) {
